@@ -16,5 +16,25 @@ namespace SearchDojo
         {
             InitializeComponent();
         }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            lvMatches.Items.Clear();
+            if (!String.IsNullOrEmpty(tbPattern.Text) && !String.IsNullOrEmpty(rtbText.Text))
+            {
+                List<string> result = RegexManager.SearchAndGetMatches(rtbText.Text, tbPattern.Text);
+                try
+                {
+                    foreach (string item in result)
+                    {
+                        lvMatches.Items.Add(item);
+                    }
+                }
+                catch (NullReferenceException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
     }
 }

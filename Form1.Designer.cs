@@ -28,37 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.rtbText = new System.Windows.Forms.RichTextBox();
-            this.rtbMatches = new System.Windows.Forms.RichTextBox();
+            this.tbPattern = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.labelText = new System.Windows.Forms.Label();
             this.labelMatches = new System.Windows.Forms.Label();
             this.labelSearchPattern = new System.Windows.Forms.Label();
+            this.rtbText = new System.Windows.Forms.RichTextBox();
+            this.lvMatches = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
-            // textBox1
+            // tbPattern
             // 
-            this.textBox1.Location = new System.Drawing.Point(73, 380);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(242, 22);
-            this.textBox1.TabIndex = 0;
-            // 
-            // rtbText
-            // 
-            this.rtbText.Location = new System.Drawing.Point(21, 28);
-            this.rtbText.Name = "rtbText";
-            this.rtbText.Size = new System.Drawing.Size(294, 320);
-            this.rtbText.TabIndex = 1;
-            this.rtbText.Text = "";
-            // 
-            // rtbMatches
-            // 
-            this.rtbMatches.Location = new System.Drawing.Point(350, 28);
-            this.rtbMatches.Name = "rtbMatches";
-            this.rtbMatches.Size = new System.Drawing.Size(285, 320);
-            this.rtbMatches.TabIndex = 2;
-            this.rtbMatches.Text = "";
+            this.tbPattern.Location = new System.Drawing.Point(73, 380);
+            this.tbPattern.Name = "tbPattern";
+            this.tbPattern.Size = new System.Drawing.Size(242, 22);
+            this.tbPattern.TabIndex = 0;
             // 
             // buttonSearch
             // 
@@ -68,6 +52,7 @@
             this.buttonSearch.TabIndex = 3;
             this.buttonSearch.Text = "Search";
             this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // labelText
             // 
@@ -96,18 +81,35 @@
             this.labelSearchPattern.TabIndex = 6;
             this.labelSearchPattern.Text = "Pattern";
             // 
+            // rtbText
+            // 
+            this.rtbText.Location = new System.Drawing.Point(21, 28);
+            this.rtbText.Name = "rtbText";
+            this.rtbText.Size = new System.Drawing.Size(294, 320);
+            this.rtbText.TabIndex = 1;
+            this.rtbText.Text = "";
+            // 
+            // lvMatches
+            // 
+            this.lvMatches.Location = new System.Drawing.Point(350, 28);
+            this.lvMatches.Name = "lvMatches";
+            this.lvMatches.Size = new System.Drawing.Size(282, 320);
+            this.lvMatches.TabIndex = 7;
+            this.lvMatches.UseCompatibleStateImageBehavior = false;
+            this.lvMatches.View = System.Windows.Forms.View.List;
+            // 
             // Matcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(660, 449);
+            this.Controls.Add(this.lvMatches);
             this.Controls.Add(this.labelSearchPattern);
             this.Controls.Add(this.labelMatches);
             this.Controls.Add(this.labelText);
             this.Controls.Add(this.buttonSearch);
-            this.Controls.Add(this.rtbMatches);
             this.Controls.Add(this.rtbText);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbPattern);
             this.Name = "Matcher";
             this.Text = "Matcher";
             this.ResumeLayout(false);
@@ -117,13 +119,13 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.RichTextBox rtbText;
-        private System.Windows.Forms.RichTextBox rtbMatches;
+        private System.Windows.Forms.TextBox tbPattern;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Label labelText;
         private System.Windows.Forms.Label labelMatches;
         private System.Windows.Forms.Label labelSearchPattern;
+        private System.Windows.Forms.RichTextBox rtbText;
+        private System.Windows.Forms.ListView lvMatches;
     }
 }
 
