@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace SearchDojo
 {
@@ -31,6 +32,26 @@ namespace SearchDojo
                     }
                 }
                 catch (NullReferenceException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void btnOpenFile_Click(object sender, EventArgs e)
+        {
+            DialogResult fileToOpen = openFileDialog.ShowDialog();
+            if (fileToOpen == DialogResult.OK)
+            {
+                string openedFileName = openFileDialog.FileName;
+                try
+                {
+                    using (StreamReader reader = new StreamReader(openedFileName))
+                    {
+                        rtbText.Text = reader.ReadToEnd();
+                    }
+                }
+                catch (UnauthorizedAccessException ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
